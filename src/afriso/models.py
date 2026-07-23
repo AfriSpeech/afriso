@@ -39,8 +39,7 @@ class Language:
     family_glottocode: str | None = None
     is_isolate: bool = False
     countries: tuple[str, ...] = ()  # ISO 3166-1 alpha-2 codes
-    regions: tuple[str, ...] = ()
-    macroareas: tuple[str, ...] = ()
+    regions: tuple[str, ...] = ()  # derived from countries
     latitude: float | None = None
     longitude: float | None = None
 
@@ -51,7 +50,7 @@ class Language:
 
     def to_dict(self) -> dict:
         d = asdict(self)
-        for key in ("alt_names", "countries", "regions", "macroareas"):
+        for key in ("alt_names", "countries", "regions"):
             d[key] = list(d[key])
         return d
 

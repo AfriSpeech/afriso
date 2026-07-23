@@ -1,7 +1,7 @@
-"""Lazy loading and indexing of the bundled datasets."""
+"""Lazy loading and indexing of the bundled CSV dataset."""
 from __future__ import annotations
 
-import json
+import csv
 from collections import defaultdict
 from functools import lru_cache
 
@@ -10,47 +10,81 @@ try:  # Python 3.9+
 except ImportError:  # pragma: no cover
     from importlib_resources import files  # type: ignore
 
+from ._schema import row_to_language
 from .models import Country, Language, LanguageSet
 
-_LIST_FIELDS = ("alt_names", "countries", "regions", "macroareas")
+GLOTTOLOG_VERSION = "v5.2"
 
 
-def _read(name: str):
-    with (files("afriso.data") / name).open("r", encoding="utf-8") as fh:
-        return json.load(fh)
-
-
-@lru_cache(maxsize=1)
-def all_languages() -> LanguageSet:
-    out = []
-    for row in _read("languages.json"):
-        row = dict(row)
-        for f in _LIST_FIELDS:
-            row[f] = tuple(row.get(f) or ())
-        out.append(Language(**row))
-    return LanguageSet(out)
+def _open(name: str):
+    return (files("afriso.data") / name).open("r", encoding="utf-8", newline="")
 
 
 @lru_cache(maxsize=1)
 def all_countries() -> tuple[Country, ...]:
-    return tuple(Country(**row) for row in _read("countries.json"))
+    with _open("countries.csv") as fh:
+        rows = list(csv.DictReader(fh))
+    counts = _country_language_counts()
+    return tuple(
+        Country(
+            code2=r["code2"], code3=r["code3"], name=r["name"],
+            region=r["region"], language_count=counts.get(r["code2"], 0),
+        )
+        for r in rows
+    )
+
+
+@lru_cache(maxsize=1)
+def _region_by_country() -> dict:
+    with _open("countries.csv") as fh:
+        return {r["code2"]: r["region"] for r in csv.DictReader(fh)}
+
+
+@lru_cache(maxsize=1)
+def _country_language_counts() -> dict:
+    counts: dict[str, int] = defaultdict(int)
+    with _open("languages.csv") as fh:
+        for row in csv.DictReader(fh):
+            for c in row.get("countries", "").split(";"):
+                c = c.strip()
+                if c:
+                    counts[c] += 1
+    return dict(counts)
+
+
+@lru_cache(maxsize=1)
+def all_languages() -> LanguageSet:
+    region_map = _region_by_country()
+    out = []
+    with _open("languages.csv") as fh:
+        for row in csv.DictReader(fh):
+            data = row_to_language(row)
+            data["regions"] = tuple(
+                sorted({region_map[c] for c in data["countries"] if c in region_map})
+            )
+            out.append(Language(**data))
+    return LanguageSet(out)
 
 
 @lru_cache(maxsize=1)
 def meta() -> dict:
-    return _read("meta.json")
+    langs = all_languages()
+    return {
+        "language_count": len(langs),
+        "country_count": len(all_countries()),
+        "sources": {
+            "iso639_3": "SIL ISO 639-3 code tables (iso639-3.sil.org)",
+            "glottolog": f"Glottolog {GLOTTOLOG_VERSION} (CC-BY 4.0)",
+        },
+    }
 
 
 @lru_cache(maxsize=1)
 def _indexes():
-    """Build lookup indexes over the language table."""
     langs = all_languages()
-    by_code: dict[str, Language] = {}
-    by_glotto: dict[str, Language] = {}
-    by_name: dict[str, list[Language]] = defaultdict(list)  # exact primary name
-    by_alt: dict[str, list[Language]] = defaultdict(list)  # any alt name
-    by_iso1: dict[str, Language] = {}
-
+    by_code, by_glotto, by_iso1 = {}, {}, {}
+    by_name = defaultdict(list)
+    by_alt = defaultdict(list)
     for lang in langs:
         by_code[lang.iso639_3] = lang
         if lang.glottocode:
@@ -60,13 +94,9 @@ def _indexes():
         by_name[lang.name.lower()].append(lang)
         for alt in lang.alt_names:
             by_alt[alt.lower()].append(lang)
-
     return {
-        "by_code": by_code,
-        "by_glotto": by_glotto,
-        "by_name": dict(by_name),
-        "by_alt": dict(by_alt),
-        "by_iso1": by_iso1,
+        "by_code": by_code, "by_glotto": by_glotto,
+        "by_name": dict(by_name), "by_alt": dict(by_alt), "by_iso1": by_iso1,
     }
 
 

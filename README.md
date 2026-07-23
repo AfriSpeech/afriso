@@ -115,23 +115,41 @@ Each `Language` has:
 | `family_glottocode` | Glottolog code of the family |
 | `is_isolate` | Whether the language is a genealogical isolate |
 | `countries` | ISO 3166-1 alpha-2 codes where it is spoken |
-| `regions` | African regions derived from `countries` |
-| `macroareas` | Glottolog macroareas |
+| `regions` | African regions, derived from `countries` at load time |
 | `latitude` / `longitude` | Approximate centre of the speaker area |
 
 Regions are the five common groupings: **North**, **West**, **Central**,
 **East**, and **Southern Africa** (aliases like "Western Africa" are accepted).
 
-## Data sources & licensing
+## The dataset is editable — corrections welcome
 
-The library code is MIT-licensed. The bundled data is derived from the SIL
-ISO 639-3 code tables and **Glottolog v5.2 (CC-BY 4.0)** — see
-[`DATA_LICENSE.md`](DATA_LICENSE.md) for attribution. Regenerate it any time
-with:
+The data lives in a single human-readable file:
+[`src/afriso/data/languages.csv`](src/afriso/data/languages.csv) — **one row per
+language**. This file is the source of truth, so fixing a language is just a
+one-line edit and a pull request. Native speakers are especially encouraged to
+correct **alternative names** — the seed data mixes genuine endonyms with
+historical exonyms and old spellings, and only speakers can tell them apart.
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full workflow. In short:
 
 ```bash
-python scripts/build_data.py
+# edit src/afriso/data/languages.csv, then verify it still loads cleanly:
+pytest
 ```
+
+New languages published upstream by SIL/Glottolog can be pulled in without
+touching existing rows (your corrections always win):
+
+```bash
+python scripts/seed_data.py --dry-run   # preview what would be added
+python scripts/seed_data.py             # append new languages only
+```
+
+## Data sources & licensing
+
+The library code is MIT-licensed. The dataset is seeded from the SIL ISO 639-3
+code tables and **Glottolog v5.2 (CC-BY 4.0)**, then curated by hand — see
+[`DATA_LICENSE.md`](DATA_LICENSE.md) for attribution.
 
 ## Development
 

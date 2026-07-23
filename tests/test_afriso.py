@@ -50,6 +50,22 @@ def test_macrolanguage_member_inherits_country():
     assert twi in afriso.by_country("Ghana")
 
 
+def test_curated_alt_names_from_dataset():
+    # Curated directly in data/languages.csv (the PR workflow), not code.
+    twi = afriso.get("Twi")
+    assert "Asante" in twi.alt_names and "Akuapem" in twi.alt_names
+    assert afriso.get("Akuapem").iso639_3 == "twi"
+
+
+def test_regions_are_derived_from_countries():
+    for lang in afriso.languages():
+        # every stored region must be justified by a country in the row
+        for r in lang.regions:
+            assert any(
+                afriso.get_country(c).region == r for c in lang.countries
+            ), lang.iso639_3
+
+
 # -- fields ----------------------------------------------------------------
 def test_language_has_family_and_countries():
     hau = afriso.get("Hausa")

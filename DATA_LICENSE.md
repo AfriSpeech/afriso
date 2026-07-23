@@ -24,14 +24,16 @@ licenses below.
   Bank, Sebastian. *Glottolog.* Max Planck Institute for Evolutionary
   Anthropology.
 
-## Regenerating the data
+## The dataset
 
-The bundled files are produced by `scripts/build_data.py`, which downloads the
-sources above and writes `languages.json`, `countries.json`, and `meta.json`
-into `src/afriso/data/`. Run:
+`src/afriso/data/languages.csv` is **seeded** from the sources above by
+`scripts/seed_data.py` and then **curated by hand** via pull requests (see
+`CONTRIBUTING.md`). The seeder is additive — re-running it only appends
+newly-published upstream languages and never overwrites curated rows:
 
 ```bash
-python scripts/build_data.py
+python scripts/seed_data.py --dry-run   # preview additions
+python scripts/seed_data.py             # append new rows only
 ```
 
 If you redistribute the bundled data, retain the Glottolog CC-BY attribution.
