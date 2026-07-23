@@ -1,0 +1,408 @@
+[
+  {
+    "code2": "DZ",
+    "code3": "DZA",
+    "name": "Algeria",
+    "region": "North Africa",
+    "language_count": 26
+  },
+  {
+    "code2": "AO",
+    "code3": "AGO",
+    "name": "Angola",
+    "region": "Central Africa",
+    "language_count": 52
+  },
+  {
+    "code2": "BJ",
+    "code3": "BEN",
+    "name": "Benin",
+    "region": "West Africa",
+    "language_count": 58
+  },
+  {
+    "code2": "BW",
+    "code3": "BWA",
+    "name": "Botswana",
+    "region": "Southern Africa",
+    "language_count": 35
+  },
+  {
+    "code2": "BF",
+    "code3": "BFA",
+    "name": "Burkina Faso",
+    "region": "West Africa",
+    "language_count": 84
+  },
+  {
+    "code2": "BI",
+    "code3": "BDI",
+    "name": "Burundi",
+    "region": "East Africa",
+    "language_count": 10
+  },
+  {
+    "code2": "CV",
+    "code3": "CPV",
+    "name": "Cabo Verde",
+    "region": "West Africa",
+    "language_count": 1
+  },
+  {
+    "code2": "CM",
+    "code3": "CMR",
+    "name": "Cameroon",
+    "region": "Central Africa",
+    "language_count": 306
+  },
+  {
+    "code2": "CF",
+    "code3": "CAF",
+    "name": "Central African Republic",
+    "region": "Central Africa",
+    "language_count": 96
+  },
+  {
+    "code2": "TD",
+    "code3": "TCD",
+    "name": "Chad",
+    "region": "Central Africa",
+    "language_count": 141
+  },
+  {
+    "code2": "KM",
+    "code3": "COM",
+    "name": "Comoros",
+    "region": "East Africa",
+    "language_count": 6
+  },
+  {
+    "code2": "CI",
+    "code3": "CIV",
+    "name": "Côte d'Ivoire",
+    "region": "West Africa",
+    "language_count": 113
+  },
+  {
+    "code2": "CD",
+    "code3": "COD",
+    "name": "Democratic Republic of the Congo",
+    "region": "Central Africa",
+    "language_count": 232
+  },
+  {
+    "code2": "DJ",
+    "code3": "DJI",
+    "name": "Djibouti",
+    "region": "East Africa",
+    "language_count": 6
+  },
+  {
+    "code2": "EG",
+    "code3": "EGY",
+    "name": "Egypt",
+    "region": "North Africa",
+    "language_count": 16
+  },
+  {
+    "code2": "GQ",
+    "code3": "GNQ",
+    "name": "Equatorial Guinea",
+    "region": "Central Africa",
+    "language_count": 12
+  },
+  {
+    "code2": "ER",
+    "code3": "ERI",
+    "name": "Eritrea",
+    "region": "East Africa",
+    "language_count": 17
+  },
+  {
+    "code2": "SZ",
+    "code3": "SWZ",
+    "name": "Eswatini",
+    "region": "Southern Africa",
+    "language_count": 4
+  },
+  {
+    "code2": "ET",
+    "code3": "ETH",
+    "name": "Ethiopia",
+    "region": "East Africa",
+    "language_count": 100
+  },
+  {
+    "code2": "GA",
+    "code3": "GAB",
+    "name": "Gabon",
+    "region": "Central Africa",
+    "language_count": 45
+  },
+  {
+    "code2": "GM",
+    "code3": "GMB",
+    "name": "Gambia",
+    "region": "West Africa",
+    "language_count": 20
+  },
+  {
+    "code2": "GH",
+    "code3": "GHA",
+    "name": "Ghana",
+    "region": "West Africa",
+    "language_count": 94
+  },
+  {
+    "code2": "GN",
+    "code3": "GIN",
+    "name": "Guinea",
+    "region": "West Africa",
+    "language_count": 53
+  },
+  {
+    "code2": "GW",
+    "code3": "GNB",
+    "name": "Guinea-Bissau",
+    "region": "West Africa",
+    "language_count": 34
+  },
+  {
+    "code2": "KE",
+    "code3": "KEN",
+    "name": "Kenya",
+    "region": "East Africa",
+    "language_count": 83
+  },
+  {
+    "code2": "LS",
+    "code3": "LSO",
+    "name": "Lesotho",
+    "region": "Southern Africa",
+    "language_count": 4
+  },
+  {
+    "code2": "LR",
+    "code3": "LBR",
+    "name": "Liberia",
+    "region": "West Africa",
+    "language_count": 42
+  },
+  {
+    "code2": "LY",
+    "code3": "LBY",
+    "name": "Libya",
+    "region": "North Africa",
+    "language_count": 21
+  },
+  {
+    "code2": "MG",
+    "code3": "MDG",
+    "name": "Madagascar",
+    "region": "East Africa",
+    "language_count": 15
+  },
+  {
+    "code2": "MW",
+    "code3": "MWI",
+    "name": "Malawi",
+    "region": "East Africa",
+    "language_count": 29
+  },
+  {
+    "code2": "ML",
+    "code3": "MLI",
+    "name": "Mali",
+    "region": "West Africa",
+    "language_count": 79
+  },
+  {
+    "code2": "MR",
+    "code3": "MRT",
+    "name": "Mauritania",
+    "region": "West Africa",
+    "language_count": 11
+  },
+  {
+    "code2": "MU",
+    "code3": "MUS",
+    "name": "Mauritius",
+    "region": "East Africa",
+    "language_count": 2
+  },
+  {
+    "code2": "YT",
+    "code3": "MYT",
+    "name": "Mayotte",
+    "region": "East Africa",
+    "language_count": 2
+  },
+  {
+    "code2": "MA",
+    "code3": "MAR",
+    "name": "Morocco",
+    "region": "North Africa",
+    "language_count": 19
+  },
+  {
+    "code2": "MZ",
+    "code3": "MOZ",
+    "name": "Mozambique",
+    "region": "East Africa",
+    "language_count": 45
+  },
+  {
+    "code2": "NA",
+    "code3": "NAM",
+    "name": "Namibia",
+    "region": "Southern Africa",
+    "language_count": 36
+  },
+  {
+    "code2": "NE",
+    "code3": "NER",
+    "name": "Niger",
+    "region": "West Africa",
+    "language_count": 29
+  },
+  {
+    "code2": "NG",
+    "code3": "NGA",
+    "name": "Nigeria",
+    "region": "West Africa",
+    "language_count": 573
+  },
+  {
+    "code2": "CG",
+    "code3": "COG",
+    "name": "Republic of the Congo",
+    "region": "Central Africa",
+    "language_count": 71
+  },
+  {
+    "code2": "RW",
+    "code3": "RWA",
+    "name": "Rwanda",
+    "region": "East Africa",
+    "language_count": 9
+  },
+  {
+    "code2": "RE",
+    "code3": "REU",
+    "name": "Réunion",
+    "region": "East Africa",
+    "language_count": 2
+  },
+  {
+    "code2": "SH",
+    "code3": "SHN",
+    "name": "Saint Helena",
+    "region": "West Africa",
+    "language_count": 1
+  },
+  {
+    "code2": "SN",
+    "code3": "SEN",
+    "name": "Senegal",
+    "region": "West Africa",
+    "language_count": 47
+  },
+  {
+    "code2": "SC",
+    "code3": "SYC",
+    "name": "Seychelles",
+    "region": "East Africa",
+    "language_count": 2
+  },
+  {
+    "code2": "SL",
+    "code3": "SLE",
+    "name": "Sierra Leone",
+    "region": "West Africa",
+    "language_count": 27
+  },
+  {
+    "code2": "SO",
+    "code3": "SOM",
+    "name": "Somalia",
+    "region": "East Africa",
+    "language_count": 15
+  },
+  {
+    "code2": "ZA",
+    "code3": "ZAF",
+    "name": "South Africa",
+    "region": "Southern Africa",
+    "language_count": 39
+  },
+  {
+    "code2": "SS",
+    "code3": "SSD",
+    "name": "South Sudan",
+    "region": "East Africa",
+    "language_count": 86
+  },
+  {
+    "code2": "SD",
+    "code3": "SDN",
+    "name": "Sudan",
+    "region": "North Africa",
+    "language_count": 101
+  },
+  {
+    "code2": "ST",
+    "code3": "STP",
+    "name": "São Tomé and Príncipe",
+    "region": "Central Africa",
+    "language_count": 3
+  },
+  {
+    "code2": "TZ",
+    "code3": "TZA",
+    "name": "Tanzania",
+    "region": "East Africa",
+    "language_count": 139
+  },
+  {
+    "code2": "TG",
+    "code3": "TGO",
+    "name": "Togo",
+    "region": "West Africa",
+    "language_count": 53
+  },
+  {
+    "code2": "TN",
+    "code3": "TUN",
+    "name": "Tunisia",
+    "region": "North Africa",
+    "language_count": 11
+  },
+  {
+    "code2": "UG",
+    "code3": "UGA",
+    "name": "Uganda",
+    "region": "East Africa",
+    "language_count": 61
+  },
+  {
+    "code2": "EH",
+    "code3": "ESH",
+    "name": "Western Sahara",
+    "region": "North Africa",
+    "language_count": 5
+  },
+  {
+    "code2": "ZM",
+    "code3": "ZMB",
+    "name": "Zambia",
+    "region": "East Africa",
+    "language_count": 50
+  },
+  {
+    "code2": "ZW",
+    "code3": "ZWE",
+    "name": "Zimbabwe",
+    "region": "East Africa",
+    "language_count": 27
+  }
+]
