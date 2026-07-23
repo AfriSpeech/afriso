@@ -136,6 +136,8 @@ python scripts/build_data.py
 ## Development
 
 ```bash
+git clone https://github.com/AfriSpeech/afriso.git
+cd afriso
 pip install -e ".[dev]"
 pytest
 ```
